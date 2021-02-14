@@ -1,0 +1,18 @@
+feign:
+  client:
+    config.*: FULL
+  hystrix:
+    enabled: true
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        errorThresholdPercentage: 100
+        metrics:
+          rollingStats:
+            timeInMilliseconds: 10000
+        requestVolumeThreshold: 20
+        sleepWindowInMilliseconds: 5000
+      execution:
+        timeout:
+          enabled: false
